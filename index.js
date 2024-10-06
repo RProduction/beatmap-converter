@@ -17,7 +17,7 @@ async function Main() {
   // get argument -i midi file path -o output
   var argv = Minimist(process.argv.slice(2));
   console.log(argv);
-  const buffer = await readFile(argv.i);
+  const buffer = await readFile(`${argv.i}.mid`);
   //console.log(buffer);
 
   const midi = new Midifile(buffer, true);
@@ -108,7 +108,15 @@ async function Main() {
 
   // convert result into json object
   const jsonString = JSON.stringify(res, null, 2);
-  await writeFile(`${argv.o}.json`, jsonString);
+
+  if (argv.o == undefined) {
+    const path = argv.i.split("/");
+    const name = path.pop();
+    await writeFile(`${name}.json`, jsonString);
+  } else {
+    await writeFile(`${argv.o}.json`, jsonString);
+  }
+  
 }
 
 Main()

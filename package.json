@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel index.js -d dist",
-    "start": "npm run build && node dist/index.js -i midi/midi.mid -o test"
+    "start": "npm run build && node dist/index.js -i midi/midi"
   },
   "author": "RProduction",
   "license": "MIT",
