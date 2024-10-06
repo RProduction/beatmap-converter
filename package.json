@@ -1,0 +1,23 @@
+{
+  "name": "beatmap-converter",
+  "version": "1.0.0",
+  "description": "Convert Midi into Beatmap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel index.js -d dist",
+    "start": "npm run build && node dist/index.js -i midi/midi.mid -o test"
+  },
+  "author": "RProduction",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
+    "@babel/preset-env": "^7.25.7"
+  },
+  "dependencies": {
+    "midievents": "^2.0.0",
+    "midifile": "^2.0.0",
+    "minimist": "^1.2.8"
+  }
+}
